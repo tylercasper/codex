@@ -38,7 +38,8 @@ pub use retry::GuardianReviewSessionLimits;
 pub use retry::run_with_retry;
 
 pub const MAX_REVIEW_ATTEMPTS: i64 = 3;
-pub const REVIEW_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(90);
+// Local inference can spend most of the deadline processing the review context.
+pub const REVIEW_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(180);
 
 pub use deadline::run_before_review_deadline;
 pub use pool::ReviewSessionResult;
